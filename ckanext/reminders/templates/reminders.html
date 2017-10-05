@@ -17,11 +17,11 @@
         {% import 'macros/form.html' as form %}
         <form id="reminder-edit" class="dataset-form form-horizontal" method="post" data-module="basic-form" action="/reminders/savereminder">
             {{ form.input('email', label=_('Email'), placeholder=_('Email Address'), value='', error=error, classes=['control-full', 'control-large']) }}
-            {{ form.select('year', label=_('Category'), options=[{'value': 'Elimu'}, {'value': 'Afya'}, {'value': 'Mifugo'}, {'value': 'Maji'}], selected='Daily', error=error, classes=['control-full', 'control-large']) }}
-            {{ form.select('year', label=_('Duration'), options=[{'value': 'Daily'}, {'value': 'Weekly'}, {'value': 'Monthly'}, {'value': 'Yearly'}], selected='Daily', error=error, classes=['control-full', 'control-large']) }}
+            {{ form.select('category', label=_('Category'), options=[{'value': 'Elimu'}, {'value': 'Afya'}, {'value': 'Mifugo'}, {'value': 'Maji'}], selected='Daily', error=error, classes=['control-full', 'control-large']) }}
+            {{ form.select('duration', label=_('Duration'), options=[{'value': 'Daily'}, {'value': 'Weekly'}, {'value': 'Monthly'}, {'value': 'Yearly'}], selected='Daily', error=error, classes=['control-full', 'control-large']) }}
 
             <div class="form-actions">
-              <button class="btn btn-primary" name="save" type="submit" disabled>Save Reminder</button>
+              <button class="btn btn-primary" name="save" type="submit">Save Reminder</button>
             </div>
         </form>
       </div>
