@@ -17,7 +17,17 @@
         {% import 'macros/form.html' as form %}
         <form id="reminder-edit" class="dataset-form form-horizontal" method="post" data-module="basic-form" action="/reminders/savereminder">
             {{ form.input('email', label=_('Email'), placeholder=_('Email Address'), value='', error=error, classes=['control-full', 'control-large']) }}
-            {{ form.select('category', label=_('Category'), options=[{'value': 'Elimu'}, {'value': 'Afya'}, {'value': 'Mifugo'}, {'value': 'Maji'}], selected='Daily', error=error, classes=['control-full', 'control-large']) }}
+            {% set groups = h.groups_available() %}
+            <div class="control-group control-full control-large control-select">
+              <label class="control-label" for="category">Category</label>
+              <div class="controls ">
+                <select id="category" name="category" >
+                  {% for group in groups %}
+                    <option value="{{ group.name }}">{{ group.name }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
             {{ form.select('duration', label=_('Duration'), options=[{'value': 'Daily'}, {'value': 'Weekly'}, {'value': 'Monthly'}, {'value': 'Yearly'}], selected='Daily', error=error, classes=['control-full', 'control-large']) }}
 
             <div class="form-actions">
